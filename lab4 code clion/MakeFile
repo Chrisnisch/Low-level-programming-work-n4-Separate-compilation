@@ -1,0 +1,16 @@
+
+output: main.o medianLib.a
+		gcc main.o medianLib.a -o output
+
+
+main.o: main.c
+		gcc -c main.c
+
+medianLib.a: median.o median.h
+		ar -rsc medianLib.a median.o
+
+median.o:
+		gcc -c median.c
+
+clean:
+		del *.o *.a output
